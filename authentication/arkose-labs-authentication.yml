@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.arkoselabs.com/docs/calling-verify-v4-api
+docs: https://developer.arkoselabs.com/docs/arkose-labs-api-guide
+summary:
+  types: [apiKey]
+  api_key_in: [body]
+  oauth2_flows: []
+  notes: >-
+    Arkose Labs uses a public/private key pair per customer account. The public
+    key is embedded client-side to load the enforcement/detection script; the
+    private key is a server-side secret passed in the JSON body of the Verify
+    API request. There is no OAuth or bearer-token scheme. The Edge API is keyed
+    by the public key in the request path.
+schemes:
+  - name: privateKey
+    type: apiKey
+    in: body
+    parameter: private_key
+    used_by: Arkose Labs Verify API
+    description: >-
+      Server-side secret paired with the client-side public key. Sent in the
+      application/json POST body to the Verify API. Never expose client-side.
+    sources: [openapi/arkose-labs-verify-openapi.yml]
+  - name: publicKey
+    type: apiKey
+    in: path
+    parameter: public_key
+    used_by: Arkose Labs Edge API
+    description: >-
+      Account public key used as a path segment on the Edge API endpoint
+      (/api/edge/v1/{public_key}) and to load the client-side script.
+    sources: [openapi/arkose-labs-edge-openapi.yml]
