@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Arkose Labs Verify API
+  version: 1.0.0
+extends: openapi/arkose-labs-verify-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-18'
+      x-apievangelist-source: https://developer.arkoselabs.com/docs/verify-api-v4
+      x-arkose-status-api: https://status.arkoselabs.com/api/v2/components.json
+      x-arkose-versioning-policy: current + one prior version supported; 60-day EoL notice
+  - target: $.paths['/api/v4/verify/'].post
+    update:
+      x-fail-open-guidance: >-
+        Never fail-open on HTTP 400. Fail-open with exponential backoff is
+        acceptable on 5xx after confirming an outage via the Status API.
+      x-auth: private_key in JSON body (server-side only)
+  - target: $.components.schemas.VerifyResponse
+    update:
+      x-response-modes: [full-json, simple-integer, error-object]

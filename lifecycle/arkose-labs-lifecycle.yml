@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.arkoselabs.com/docs/arkose-labs-api-guide
+versioning:
+  scheme: uri-path
+  current: v4
+  pattern: /api/v{n}/verify/
+  docs: https://developer.arkoselabs.com/docs/arkose-labs-api-guide
+  policy: >-
+    Arkose Labs fully supports the current API version and the version one prior.
+    Versions two or more behind the current version may be moved to End-of-Life
+    (EoL) / End-of-Support (EoS).
+deprecation:
+  policy_url: https://developer.arkoselabs.com/docs/end-of-life-communications
+  notice_period_days: 60
+  notice_method: written notice to clients
+  sunset_header: false
+  communications:
+    - title: Verify End of Life Communication
+      url: https://developer.arkoselabs.com/docs/verify-end-of-life-communication
+    - title: Verify API GET Requests End Of Life Communication
+      url: https://developer.arkoselabs.com/docs/verify-api-get-requests-end-of-life-communication
+    - title: is_bot Field End Of Life Communication
+      url: https://developer.arkoselabs.com/docs/is_bot-field-end-of-life-communication
+    - title: Enforcement Challenge UI 1.0 End of Life Communication
+      url: https://developer.arkoselabs.com/docs/enforcement-challenge-ui-10-end-of-life-communication
+    - title: Pick-a-tile End of Life Communication
+      url: https://developer.arkoselabs.com/docs/pick-a-tile-end-of-life-communication
+status_page: https://status.arkoselabs.com
+status_api:
+  components: https://status.arkoselabs.com/api/v2/components.json
+  summary: https://status.arkoselabs.com/api/v2/status.json
+  component_statuses: [operational, degraded_performance, partial_outage, major_outage, under_maintenance]
+migration:
+  - title: Migrating to Verify v4 from v1, v2, v3
+    url: https://developer.arkoselabs.com/docs/migrating-to-verify-v4-from-v1-v2-v3
+deprecated_operations: []
+notes: >-
+  Migration to Verify v4 is documented; earlier v1/v2/v3 verify endpoints and
+  GET-style verify requests have published EoL communications.

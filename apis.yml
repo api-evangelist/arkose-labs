@@ -1,24 +1,167 @@
 aid: arkose-labs
 name: Arkose Labs
-description: 'Arkose Labs is a company surfaced as a portfolio company of softbank-vision-fund and added
-  to the API Evangelist network as a stub for enrichment. Sector: enterprise. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Arkose Labs is a bot management and account-security platform (the Arkose
+  Bot Manager / Titan platform) that protects login, registration, and other
+  high-value user flows from bots, fraud, and abuse. It combines a client-side
+  detection engine and adaptive Enforcement Challenge with a server-side Verify
+  API that returns a risk assessment (risk band, score, telltales, IP / device /
+  email intelligence, and agent trust) for every session, plus a lightweight
+  server-side Edge API for surfaces where client JavaScript cannot run. The
+  developer surface includes the Verify API v4, Edge API, Truth Data and
+  Retroactive Attack Insights APIs, mobile SDKs (Android, iOS, React Native),
+  CDN integrations (Akamai, Cloudflare, Fastly), and a public status page.
 url: https://raw.githubusercontent.com/api-evangelist/arkose-labs/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - softbank-vision-fund
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-developer-docs
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.arkoselabs.com/wp-content/uploads/2023/03/arkose-labs-logo.svg
 tags:
 - Company
 - Enterprise
-apis: []
+- Security
+- Bot Management
+- Fraud Prevention
+- Authentication
+- Account Security
+- Bot Detection
+- Risk Scoring
+- CAPTCHA
+apis:
+- aid: arkose-labs:arkose-labs-edge-api
+  name: Arkose Labs Edge API
+  description: Edge risk assessment
+  humanURL: https://developer.arkoselabs.com/docs/verify-api-v4
+  baseURL: https://verify-api.arkoselabs.com
+  tags:
+  - Edge
+  properties:
+  - type: OpenAPI
+    url: openapi/arkose-labs-edge-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-request.json
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-response.json
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/calling-verify-v4-api
+  - type: APIReference
+    url: https://developer.arkoselabs.com/docs/verify-api-v4-response-fields
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/edge-api-request-parameters
+- aid: arkose-labs:arkose-labs-schema-api
+  name: Arkose Labs Schema API
+  description: Machine-readable request/response schemas
+  humanURL: https://developer.arkoselabs.com/docs/verify-api-v4
+  baseURL: https://verify-api.arkoselabs.com
+  tags:
+  - Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/arkose-labs-schema-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-request.json
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-response.json
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/calling-verify-v4-api
+  - type: APIReference
+    url: https://developer.arkoselabs.com/docs/verify-api-v4-response-fields
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/edge-api-request-parameters
+- aid: arkose-labs:arkose-labs-verify-api
+  name: Arkose Labs Verify API
+  description: Session verification
+  humanURL: https://developer.arkoselabs.com/docs/verify-api-v4
+  baseURL: https://verify-api.arkoselabs.com
+  tags:
+  - Verify
+  properties:
+  - type: OpenAPI
+    url: openapi/arkose-labs-verify-api-openapi.yml
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-request.json
+  - type: x-json-schema
+    url: json-schema/arkose-labs-verify-response.json
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/calling-verify-v4-api
+  - type: APIReference
+    url: https://developer.arkoselabs.com/docs/verify-api-v4-response-fields
+  - type: Documentation
+    url: https://developer.arkoselabs.com/docs/edge-api-request-parameters
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/arkose-labs-domain-security.yml
+- type: DeveloperPortal
+  url: https://developer.arkoselabs.com/
+- type: Documentation
+  url: https://developer.arkoselabs.com/docs/arkose-labs-api-guide
+- type: APIReference
+  url: https://developer.arkoselabs.com/docs/verify-request-and-response-schemas
+- type: GettingStarted
+  url: https://developer.arkoselabs.com/docs/arkose-labs-platform-quickstart
+- type: Blog
+  url: https://www.arkoselabs.com/blog/
+- type: Support
+  url: https://www.arkoselabs.com/support/
+- type: HelpCenter
+  url: https://support.arkoselabs.com/
+- type: TermsOfService
+  url: https://www.arkoselabs.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.arkoselabs.com/privacy-policy/
+- type: StatusPage
+  url: https://status.arkoselabs.com
+- type: Deprecation
+  url: https://developer.arkoselabs.com/docs/end-of-life-communications
+- type: Security
+  url: https://hackerone.com/arkose_labs
+- type: LLMsTxt
+  url: llms/arkose-labs-llms.txt
+- type: Authentication
+  url: authentication/arkose-labs-authentication.yml
+- type: Lifecycle
+  url: lifecycle/arkose-labs-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/arkose-labs-problem-types.yml
+- type: Conventions
+  url: conventions/arkose-labs-conventions.yml
+- type: Conformance
+  url: conformance/arkose-labs-conformance.yml
+- type: DataModel
+  url: data-model/arkose-labs-data-model.yml
+- type: MCPServer
+  url: mcp/arkose-labs-mcp.yml
+- type: WellKnown
+  url: well-known/arkose-labs-well-known.yml
+- type: Overlay
+  url: overlays/arkose-labs-verify-overlay.yaml
+- type: VulnerabilityDisclosure
+  url: security/arkose-labs-vulnerability-disclosure.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

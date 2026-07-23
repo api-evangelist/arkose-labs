@@ -1,0 +1,48 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arkose-labs-verify-openapi.yml
+docs: https://developer.arkoselabs.com/docs/verify-api-v4-response-fields
+format: json
+envelope:
+  description: >-
+    The Verify API does not use RFC 9457 problem+json. Token-level problems are
+    returned in the 200 body as an object with `error` (string) and `verified`
+    (timestamp). Transport/HTTP errors are signaled by HTTP status: do NOT
+    fail-open on 400; fail-open with exponential backoff is acceptable on 5xx.
+  fields:
+    error: Human-readable error string (e.g. "DENIED ACCESS", "invalid token").
+    verified: Timestamp the verification was evaluated.
+http_errors:
+  - status: 400
+    title: Bad Request
+    remediation: >-
+      Malformed body or invalid parameters (e.g. missing private_key or
+      session_token). Do NOT fail-open — allowing these through can expose the
+      system to abuse.
+    source_operation: openapi/arkose-labs-verify-openapi.yml#verifySession
+  - status: 500
+    title: Server Error
+    remediation: >-
+      Retry with exponential backoff; fail-open is acceptable per Arkose
+      guidance during a service disruption (confirm via the Status API first).
+    source_operation: openapi/arkose-labs-verify-openapi.yml#verifySession
+# Domain error fields the verify response can carry (from the published response schema enums)
+domain_errors:
+  - field: signature_fail_reason
+    scope: agent_trust.web_bot_auth
+    values: [bad_signature, missing_key, directory_unreachable, malformed_input, signature_expired, unsupported_profile, null]
+    meaning: Reason Web Bot Auth signature verification failed; null on success.
+  - field: lowsec_error
+    scope: session_details
+    values: [user_credits, rate_limit_local, validation_checks, rate_limit_global, null]
+    meaning: >-
+      Set when a session intended for a low-security (transparent / no-wrong-answer)
+      path failed to qualify at verification time.
+  - field: failed_low_sec_validation
+    scope: session_details
+    values: [true, false]
+    meaning: The session qualified for low security but failed verification.
+notes: >-
+  This complements the risk assessment; the presence of `error` in the body, or
+  a non-2xx HTTP status, indicates a verification/transport problem rather than a
+  clean solved/not-solved result.

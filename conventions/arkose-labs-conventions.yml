@@ -1,0 +1,46 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.arkoselabs.com/docs/arkose-labs-api-guide
+authentication:
+  style: api-key
+  detail: >-
+    private_key in the JSON POST body for the Verify API (server-side only);
+    public_key in the path for the Edge API. See authentication/arkose-labs-authentication.yml.
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency-key mechanism is documented. Verify is a read-style
+    assessment of a single-use session token — re-POSTing the same session_token
+    returns the same verdict, but there is no documented Idempotency-Key header.
+pagination:
+  supported: false
+  detail: Single-resource verification; no list endpoints, so no pagination.
+versioning:
+  style: uri-path
+  detail: /api/v4/verify/ ; supports current + one prior version. See lifecycle/.
+request_format:
+  content_type: application/json
+  method: POST
+  note: GET-style verify requests are deprecated (EoL communication published).
+response_modes:
+  - name: full
+    detail: Full JSON risk assessment object (default).
+  - name: simple
+    detail: Simple integer 1/0 when simple_mode=true in the request body.
+error_envelope:
+  detail: >-
+    { "error": <string>, "verified": <timestamp> } on token problems; HTTP
+    status codes for transport errors. See errors/arkose-labs-problem-types.yml.
+rate_limit_signal:
+  detail: >-
+    No documented rate-limit response headers. API usage is governed by
+    contractual quota; lowsec_error can carry rate_limit_local / rate_limit_global.
+availability:
+  fail_open_guidance: >-
+    Integrate so Arkose can be bypassed (fail-open) during a service disruption;
+    check https://status.arkoselabs.com/api/v2/components.json before failing open.
+    Never fail-open on HTTP 400.
+cross_links:
+  authentication: authentication/arkose-labs-authentication.yml
+  errors: errors/arkose-labs-problem-types.yml
+  lifecycle: lifecycle/arkose-labs-lifecycle.yml

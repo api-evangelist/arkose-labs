@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/arkose-labs-verify-openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security scheme; uses private/public API keys.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors returned as {error, verified} in 200 body, not application/problem+json.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: >-
+      Deprecation is announced via written 60-day EoL communications, not
+      Sunset/Deprecation HTTP headers.
+  - id: json-schema
+    conforms: true
+    evidence: >-
+      Verify API publishes live JSON Schema for request and response at
+      /api/v4/verify/schema/{request,response}.
+  - id: rest-json
+    conforms: true
+    evidence: application/json POST request/response.
+notes: >-
+  Derived from OpenAPI/docs. No published third-party compliance certifications
+  (SOC 2 / ISO 27001 / PCI) were discoverable on a public trust center at probe
+  time, so no Compliance pointer is emitted.

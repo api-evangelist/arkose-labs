@@ -1,0 +1,65 @@
+generated: '2026-07-18'
+method: derived
+source: json-schema/arkose-labs-verify-response.json
+root: Session
+entities:
+  - name: Session
+    description: >-
+      A single Arkose Labs interaction (detection and/or enforcement challenge)
+      identified by a session token and verified server-side.
+    key_fields: [session, session_created, verified, solved, challenge_type]
+    relationships:
+      - has_one: SessionRisk
+        via: session_risk
+      - has_one: SessionDetails
+        via: session_details
+      - has_one: IpIntelligence
+        via: ip_intelligence
+      - has_one: DeviceId
+        via: device_id
+      - has_one: StatefulDeviceId
+        via: stateful_device_id
+      - has_one: EmailIntelligence
+        via: email_intelligence
+      - has_one: AgentTrust
+        via: agent_trust
+      - has_one: ProofOfWork
+        via: proof_of_work
+      - has_one: Fingerprint
+        via: fingerprint
+      - has_one: DataExchange
+        via: data_exchange
+      - has_one: Aggregations
+        via: aggregations
+  - name: SessionRisk
+    description: Risk classification derived from triggered telltales.
+    key_fields: [risk_band, risk_category]
+    relationships:
+      - has_one: RiskScore
+        via: global
+      - has_one: RiskScore
+        via: custom
+  - name: RiskScore
+    key_fields: [score, telltales]
+  - name: SessionDetails
+    key_fields: [solved, security_level, challenge_type, lowsec_error, ip_rep_list]
+  - name: IpIntelligence
+    description: IP reputation / velocity signals.
+  - name: DeviceId
+    key_fields: [device_id, device_id_version]
+  - name: StatefulDeviceId
+    key_fields: [stateful_device_id, challenges_bypassed]
+  - name: EmailIntelligence
+    description: Email risk (add-on feature).
+  - name: AgentTrust
+    description: Agent metadata and Web Bot Auth signature verification.
+    key_fields: [signature_fail_reason]
+  - name: ProofOfWork
+  - name: Fingerprint
+  - name: DataExchange
+    description: Encrypted (AES-256-GCM) payload exchanged between customer and Arkose servers.
+  - name: Aggregations
+notes: >-
+  Derived from the published Verify response JSON Schema (single nested
+  document; no cross-resource id references — Arkose returns one composite
+  assessment object per session rather than linkable REST resources).

@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "log_data": {
+      "type": "string"
+    },
+    "private_key": {
+      "type": "string"
+    },
+    "session_token": {
+      "type": "string"
+    },
+    "simple_mode": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

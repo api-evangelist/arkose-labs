@@ -1,0 +1,18 @@
+{
+  "provider": "arkose-labs",
+  "sources": [
+    "arkose-labs-edge-api-openapi.yml",
+    "arkose-labs-schema-api-openapi.yml",
+    "arkose-labs-verify-api-openapi.yml"
+  ],
+  "outputs": [
+    "arkose-labs-edge-api-openapi.yml",
+    "arkose-labs-schema-api-openapi.yml",
+    "arkose-labs-verify-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
