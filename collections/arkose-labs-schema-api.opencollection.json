@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Arkose Labs Edge Schema API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schema",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch the Verify request JSON Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://client-api.arkoselabs.com/api/v4/verify/schema/request"
+          },
+          "docs": "Fetch the Verify request JSON Schema"
+        },
+        {
+          "info": {
+            "name": "Fetch the Verify response JSON Schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://client-api.arkoselabs.com/api/v4/verify/schema/response"
+          },
+          "docs": "Fetch the Verify response JSON Schema"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Arkose Labs Edge Verify API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verify",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify an Arkose Labs session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://client-api.arkoselabs.com/api/v4/verify/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate a session token returned by the client-side API. Always call server-side. Do NOT fail-open on HTTP 400; fail-open is acceptable on 5xx with exponential backoff."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

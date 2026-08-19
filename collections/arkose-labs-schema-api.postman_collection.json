@@ -1,0 +1,182 @@
+{
+  "item": [
+    {
+      "id": "b4bf7079-9170-4957-823c-694d42ed00ed",
+      "name": "Schema",
+      "description": {
+        "content": "Machine-readable request/response schemas",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b0bbddc-bfa2-41a1-94a3-754100ccf384",
+          "name": "Fetch the Verify request JSON Schema",
+          "request": {
+            "name": "Fetch the Verify request JSON Schema",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "verify",
+                "schema",
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ce1df57-3959-44b4-a011-44a1cb19c29b",
+              "name": "JSON Schema for the verify request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "verify",
+                    "schema",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d996e069-dbb7-4355-b39c-56833c89ad4f",
+          "name": "Fetch the Verify response JSON Schema",
+          "request": {
+            "name": "Fetch the Verify response JSON Schema",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "verify",
+                "schema",
+                "response"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b4f6606-f06d-4bb2-8272-f36dbad78bcc",
+              "name": "JSON Schema for the verify response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "verify",
+                    "schema",
+                    "response"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://client-api.arkoselabs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "129ef3f2-e345-4086-9b60-e1c970d3041b",
+    "name": "Arkose Labs Edge Schema API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lightweight server-side detection API. The customer relays the inbound client HTTP request (method, url, headers, body) to Arkose Edge, which returns a risk assessment and allow/deny recommendation from consortium intelligence — for surfaces where client-side JavaScript/SDK cannot run (mobile backends, IoT, programmatic APIs). Generated by API Evangelist from the published Arkose Labs Edge API documentation.\n\nContact Support:\n Name: Arkose Labs Support",
+      "type": "text/plain"
+    }
+  }
+}

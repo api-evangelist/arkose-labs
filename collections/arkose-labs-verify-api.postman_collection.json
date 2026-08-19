@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "67dcc032-6dfd-49cc-ba19-231b1dbc1ad8",
+      "name": "Verify",
+      "description": {
+        "content": "Session verification",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d25bc5e-d5b3-4cdc-9b12-6b25c3d5d6a1",
+          "name": "Verify an Arkose Labs session",
+          "request": {
+            "name": "Verify an Arkose Labs session",
+            "description": {
+              "content": "Validate a session token returned by the client-side API. Always call server-side. Do NOT fail-open on HTTP 400; fail-open is acceptable on 5xx with exponential backoff.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "verify",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"private_key\": \"<string>\",\n  \"session_token\": \"<string>\",\n  \"log_data\": \"<string>\",\n  \"simple_mode\": \"<boolean>\",\n  \"email_address\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d90a7963-af7c-4f2a-96d7-90c2fadc7eac",
+              "name": "Verification result (simple 1/0 integer when simple_mode, else full JSON assessment; error object on token problems).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "verify",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"private_key\": \"<string>\",\n  \"session_token\": \"<string>\",\n  \"log_data\": \"<string>\",\n  \"simple_mode\": \"<boolean>\",\n  \"email_address\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"verified\": \"2008-07-02T07:27:31.258Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d7092e5-31c3-4eba-b652-09a4628a8702",
+              "name": "Bad request (malformed body / invalid parameters). Do not fail-open.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "verify",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"private_key\": \"<string>\",\n  \"session_token\": \"<string>\",\n  \"log_data\": \"<string>\",\n  \"simple_mode\": \"<boolean>\",\n  \"email_address\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c04df5c1-368b-41ea-ba11-43eece6d98ba",
+              "name": "Server error. Fail-open with exponential backoff is acceptable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "verify",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"private_key\": \"<string>\",\n  \"session_token\": \"<string>\",\n  \"log_data\": \"<string>\",\n  \"simple_mode\": \"<boolean>\",\n  \"email_address\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://client-api.arkoselabs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e51f9fe6-7867-4e54-851d-50d6dd6c7406",
+    "name": "Arkose Labs Edge Verify API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lightweight server-side detection API. The customer relays the inbound client HTTP request (method, url, headers, body) to Arkose Edge, which returns a risk assessment and allow/deny recommendation from consortium intelligence — for surfaces where client-side JavaScript/SDK cannot run (mobile backends, IoT, programmatic APIs). Generated by API Evangelist from the published Arkose Labs Edge API documentation.\n\nContact Support:\n Name: Arkose Labs Support",
+      "type": "text/plain"
+    }
+  }
+}

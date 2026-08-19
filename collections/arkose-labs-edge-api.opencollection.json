@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Arkose Labs Edge API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Edge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Assess an inbound request at the edge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://client-api.arkoselabs.com/api/edge/v1/:public_key",
+            "params": [
+              {
+                "name": "public_key",
+                "value": "",
+                "type": "path",
+                "description": "Your Arkose Labs public key."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assess an inbound request at the edge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "35c4753a-e39d-4e0d-94d5-07bd2ca8eab5",
+      "name": "Edge",
+      "description": {
+        "content": "Edge risk assessment",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65c99fd6-06f3-4d5a-ab1c-61a55613efd2",
+          "name": "Assess an inbound request at the edge",
+          "request": {
+            "name": "Assess an inbound request at the edge",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "edge",
+                "v1",
+                ":public_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "public_key",
+                  "description": "(Required) Your Arkose Labs public key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"headers\": \"<object>\",\n  \"method\": \"<string>\",\n  \"url\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d02079e-d3d2-4134-ab20-9461198a5edd",
+              "name": "Risk assessment and allow/deny recommendation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "edge",
+                    "v1",
+                    ":public_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "public_key",
+                      "description": "(Required) Your Arkose Labs public key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"headers\": \"<object>\",\n  \"method\": \"<string>\",\n  \"url\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dbd50e0-a8a2-4b49-8bdb-afce1c378047",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "edge",
+                    "v1",
+                    ":public_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "public_key",
+                      "description": "(Required) Your Arkose Labs public key."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"headers\": \"<object>\",\n  \"method\": \"<string>\",\n  \"url\": \"<string>\",\n  \"body\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://client-api.arkoselabs.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "44fdfd0e-6c02-42f5-b21f-ca3e4fcb8c21",
+    "name": "Arkose Labs Edge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Lightweight server-side detection API. The customer relays the inbound client HTTP request (method, url, headers, body) to Arkose Edge, which returns a risk assessment and allow/deny recommendation from consortium intelligence — for surfaces where client-side JavaScript/SDK cannot run (mobile backends, IoT, programmatic APIs). Generated by API Evangelist from the published Arkose Labs Edge API documentation.\n\nContact Support:\n Name: Arkose Labs Support",
+      "type": "text/plain"
+    }
+  }
+}

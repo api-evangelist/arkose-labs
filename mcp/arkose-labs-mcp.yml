@@ -5,20 +5,24 @@ source: openapi/arkose-labs-verify-openapi.yml
 server:
   name: arkose-labs
   transport: http
-  note: >-
-    No official Arkose Labs MCP server was found (docs, npm @modelcontextprotocol,
-    MCP registries) at generation time. Tools below are a candidate surface
-    derived from the documented OpenAPI operations.
+  note: No official Arkose Labs MCP server was found (docs, npm @modelcontextprotocol, MCP registries)
+    at generation time. Tools below are a candidate surface derived from the documented OpenAPI operations.
 tools:
-  - name: verify_session
-    description: Verify an Arkose Labs session token server-side and return the risk assessment.
-    source_operation: openapi/arkose-labs-verify-openapi.yml#verifySession
-  - name: get_verify_request_schema
-    description: Fetch the live Verify request JSON Schema.
-    source_operation: openapi/arkose-labs-verify-openapi.yml#getVerifyRequestSchema
-  - name: get_verify_response_schema
-    description: Fetch the live Verify response JSON Schema.
-    source_operation: openapi/arkose-labs-verify-openapi.yml#getVerifyResponseSchema
-  - name: edge_assess
-    description: Assess an inbound HTTP request at the edge and return an allow/deny recommendation.
-    source_operation: openapi/arkose-labs-edge-openapi.yml#edgeAssess
+- name: verify_session
+  description: Verify an Arkose Labs session token server-side and return the risk assessment.
+  source_operation: openapi/arkose-labs-verify-openapi.yml#verifySession
+- name: get_verify_request_schema
+  description: Fetch the live Verify request JSON Schema.
+  source_operation: openapi/arkose-labs-verify-openapi.yml#getVerifyRequestSchema
+- name: get_verify_response_schema
+  description: Fetch the live Verify response JSON Schema.
+  source_operation: openapi/arkose-labs-verify-openapi.yml#getVerifyResponseSchema
+- name: edge_assess
+  description: Assess an inbound HTTP request at the edge and return an allow/deny recommendation.
+  source_operation: openapi/arkose-labs-edge-openapi.yml#edgeAssess
+deployment:
+  mode: none
+  verified: derived
+  tools: 4
+  checked: '2026-08-12'
+  source: catalog MCP census
