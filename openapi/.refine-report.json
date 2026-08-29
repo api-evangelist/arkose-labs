@@ -1,9 +1,8 @@
 {
   "provider": "arkose-labs",
   "sources": [
-    "arkose-labs-edge-api-openapi.yml",
-    "arkose-labs-schema-api-openapi.yml",
-    "arkose-labs-verify-api-openapi.yml"
+    "_original/arkose-labs-edge-openapi.yml",
+    "_original/arkose-labs-verify-openapi.yml"
   ],
   "outputs": [
     "arkose-labs-edge-api-openapi.yml",
@@ -13,6 +12,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "arkose-labs-edge-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "arkose-labs-verify-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "arkose-labs-edge-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arkose-labs-schema-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arkose-labs-verify-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
