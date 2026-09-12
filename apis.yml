@@ -125,6 +125,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.arkoselabs.com/
 - type: DomainSecurity
   url: security/arkose-labs-domain-security.yml
 - type: DeveloperPortal
