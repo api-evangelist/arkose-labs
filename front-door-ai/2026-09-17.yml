@@ -1,0 +1,30 @@
+# Front Door AI Index — arkose-labs — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: arkose-labs
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.arkoselabs.com
+  final_host: www.arkoselabs.com
+  ownership: own
+  owner: arkose-labs
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 32
+  host_score: 32
+  density: 37.69
+  words: 849
+  tiers:
+    agentic: 17
+    core: 15
+    model: 0
+  ambiguous: 28
+  top_terms:
+    agent: 23
+    AI: 15
+    AI agent: 11
+    agentic: 6
+    intelligence: 4
+    automation: 1
