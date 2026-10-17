@@ -48,27 +48,6 @@ paths:
           description: Server error. Fail-open with exponential backoff is acceptable.
 components:
   schemas:
-    VerifyRequest:
-      properties:
-        log_data:
-          type: string
-          description: Optional. Freeform string stored with the session for manual traffic analysis.
-        private_key:
-          type: string
-          description: Required. The private key issued by Arkose Labs paired with the client-side public key.
-        session_token:
-          type: string
-          description: Required. The token value from the client-side onComplete callback response object.
-        simple_mode:
-          type: boolean
-          description: Optional. When true, the response is a simple 1/0 integer instead of the full JSON assessment.
-        email_address:
-          type: string
-          description: Optional. Email to assess via the Email Intelligence add-on (POST only).
-      type: object
-      required:
-      - private_key
-      - session_token
     VerifyResponse:
       oneOf:
       - description: error response
@@ -1138,3 +1117,24 @@ components:
         - session_details
         - data_exchange
         type: object
+    VerifyRequest:
+      properties:
+        log_data:
+          type: string
+          description: Optional. Freeform string stored with the session for manual traffic analysis.
+        private_key:
+          type: string
+          description: Required. The private key issued by Arkose Labs paired with the client-side public key.
+        session_token:
+          type: string
+          description: Required. The token value from the client-side onComplete callback response object.
+        simple_mode:
+          type: boolean
+          description: Optional. When true, the response is a simple 1/0 integer instead of the full JSON assessment.
+        email_address:
+          type: string
+          description: Optional. Email to assess via the Email Intelligence add-on (POST only).
+      type: object
+      required:
+      - private_key
+      - session_token
